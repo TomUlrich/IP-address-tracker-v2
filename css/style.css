@@ -1,0 +1,118 @@
+:root {
+  --dark-gray: hsl(0, 0%, 17%);
+  --gray: hsl(0, 0%, 59%);
+}
+
+@font-face {
+  font-family: 'rubik';
+  src: url('../fonts/rubik.ttf');
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 18px;
+  font-family: rubik;
+  background-color: aqua;
+}
+
+.container{
+  position: relative;
+  width: 375px;
+
+}
+
+.display {
+  background-image: url(../images/pattern-bg-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 1px;
+  margin: 1.7rem 0;
+}
+
+.ip-input{
+  /* width: 250px; */
+}
+
+.ip--input-text{
+  padding: 1.2rem 0 1.2rem 1.2rem;
+  border-radius: 12px 0 0 12px;
+  border: none;
+  margin-right: -5px;
+  width: 280px;
+  font-size: 1.1rem;
+}
+
+.ip--input-submit{
+  padding: 1.2rem 1.6rem;
+  border-radius: 0 12px 12px 0;
+  border: none;
+  width: 47px;
+  background-color: #000;
+  color: #fff;
+  background-image: url(../images/icon-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ************ data-container ************ */
+.data-container{
+  position: absolute;
+  top: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  gap: 1rem;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+}
+
+h2 {
+  color: var(--gray);
+  font-size: 12px;
+  /* font-weight: 500; */
+  text-transform: uppercase;
+}
+
+p {
+  font-weight: 700;
+}
+
+.map{
+  background-color: red;
+  height: 600px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
