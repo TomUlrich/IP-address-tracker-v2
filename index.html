@@ -15,9 +15,13 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script defer src="/js/leaflet.js"></script>
 
+  <!-- form data -->
+  <!-- <script src="/js/form-data.js"></script> -->
+
   <!-- Ipify -->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
   <script defer src="js/ipify.js"></script>
+
 </head>
 
 <body>
@@ -26,28 +30,31 @@
 
     <div class="display">
       <h1>IP Address Tracker</h1>
-      <form class="ip-input" action="/action_page.php">
-        <input class="ip--input-text" type="text" minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$" placeholder="Search for any IP address or domain">
 
-        <input class="ip--input-submit" type="submit" value=" ">
+      <!-- IP input -->
+      <form class="ip-input">
+        <input class="ip--input-text" type="text" minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$" placeholder="Search for any IP address or domain">
+        <!-- send IP address -->
+        <input class="submit-btn" type="submit" name="submit" value=" ">
       </form>
 
+      <!-- output -->
       <div class="data-container">
         <div class="data" class="ip">
           <h2>ip address</h2>
-          <p>192.168.1.0</p>
+          <p id="ip">192.168.1.0</p>
         </div>
         <div class="data" class="location">
           <h2>location</h2>
-          <p>Brooklyn, NY 10001</p>
+          <p><span id="city"></span>, <span id="region"></span> <span id="postalCode"></span></p>
         </div>
         <div class="data" class="timezone">
           <h2>timezone</h2>
-          <p>UTC - 05:00</p>
+          <p>UTC <span id="timezone"></span></p>
         </div>
         <div class="data" class="isp">
           <h2>isp</h2>
-          <p>SpaceX Starlink</p>
+          <p id="isp">SpaceX Starlink</p>
         </div>
       </div>
       <!-- add offset value dynamically using the API -->
