@@ -1,3 +1,34 @@
+const ip = document.getElementById('ip');
+const city = document.getElementById('city');
+const region = document.getElementById('region');
+const postalCode = document.getElementById('postalCode');
+const timezone = document.getElementById('timezone');
+const isp = document.getElementById('isp');
+
+async function fetchPublicIP() {
+  try {
+    return await getPublicIP(); // Return the promise returned by getPublicIP()
+  } catch (error) {
+    console.error('Error occurred:', error);
+    throw error;
+  }
+}
+
+async function getPublicIP() {
+  try {
+    const response = await fetch('https://api.ipify.org?format=json');
+    const data = await response.json();
+    return data.ip;
+  } catch (error) {
+    console.error('Error fetching public IP address:', error);
+    throw error;
+  }
+}
+
+fetchPublicIP().then((ip) => {
+  console.log('KKK', ip); // Access the resolved IP here
+});
+
 // create a map of the center of Berlin with LeafLet
 let map = L.map('map', { zoomControl: false }).setView([52.52100062380785, 13.409400113003983], 13);
 
@@ -30,12 +61,12 @@ document.querySelector('.ip-input').addEventListener('submit', function (event) 
       };
       console.log(dataObject);
 
-      const ip = (document.getElementById('ip').innerText = `${dataObject.ip}`);
-      const city = (document.getElementById('city').innerText = `${dataObject.city}`);
-      const region = (document.getElementById('region').innerText = `${dataObject.region}`);
-      const postalCode = (document.getElementById('postalCode').innerText = `${dataObject.postalCode}`);
-      const timezone = (document.getElementById('timezone').innerText = `${dataObject.timezone}`);
-      const isp = (document.getElementById('isp').innerText = `${dataObject.isp}`);
+      ip.innerText = `${dataObject.ip}`;
+      city.innerText = `${dataObject.city}`;
+      region.innerText = `${dataObject.region}`;
+      postalCode.innerText = `${dataObject.postalCode}`;
+      timezone.innerText = `${dataObject.timezone}`;
+      isp.innerText = `${dataObject.isp}`;
       const lat = dataObject.lat;
       const lng = dataObject.lng;
 
@@ -46,6 +77,5 @@ document.querySelector('.ip-input').addEventListener('submit', function (event) 
     })
     .catch((error) => {
       console.error('Error fetching location:', error);
-      document.getElementById('locationInfo').innerText = `<p>Error fetching location. Please try again later.</p>`;
     });
 });
